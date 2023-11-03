@@ -1,0 +1,78 @@
+<mat-card>
+  <h1>User Employment Information</h1>
+  <form [formGroup]="workForm">
+    <mat-form-field>
+      <input
+        matInput
+        formControlName="averageSalary"
+        placeholder="Average Salary"
+        type="number"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        formControlName="occupation"
+        placeholder="Occupation"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Relevant Skills</mat-label>
+      <textarea matInput formControlName="relevantSkills" required></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Educational Level</mat-label>
+      <mat-select formControlName="educationalLevel" required>
+        <mat-option value="WITHOUT_STUDY">Without Study</mat-option>
+        <mat-option value="SCHOOL">School</mat-option>
+        <mat-option value="INSTITUTE">Institute</mat-option>
+        <mat-option value="UNIVERSITY">University</mat-option>
+        <mat-option value="STUDIES_FOR_INTEREST"
+          >Studies for Interest</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+
+    <mat-card
+      *ngFor="let experienceGroup of workExperiencesControls(); let i = index" [formGroup]="experienceGroup"
+    >
+      <mat-label>Work Experience {{ i + 1 }}</mat-label>
+      <mat-form-field>
+        <input
+          matInput
+          formControlName="employment"
+          placeholder="Employment"
+          required
+        />
+      </mat-form-field>
+      <button mat-stroked-button type="button" (click)="removeExperience(i)">
+        Remove Experience
+      </button>
+    </mat-card>
+
+    <button mat-stroked-button type="button" (click)="addExperience()">
+      Add Experience
+    </button>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      (click)="onSubmit()"
+    >
+      Submit
+    </button>
+
+    <mat-card *ngIf="dangerMessage" class="danger-message">
+      Incomplete form, complete the required fields.
+    </mat-card>
+    <mat-card *ngIf="validMessage" class="valid-message">
+      Submitted employment information.
+    </mat-card>
+  </form>
+</mat-card>

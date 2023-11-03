@@ -1,0 +1,9 @@
+products-item-product{
+  margin: 20px;
+}
+.list-products{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}

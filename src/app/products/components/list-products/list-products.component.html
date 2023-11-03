@@ -1,0 +1,6 @@
+<div class="list-products" *ngIf="products">
+  <products-item-product
+    [product]="product"
+    *ngFor="let product of products"
+  ></products-item-product>
+</div>

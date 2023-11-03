@@ -1,0 +1,137 @@
+<mat-card>
+  <h1>Adult Child Form</h1>
+  <form [formGroup]="adultChildForm">
+    <mat-form-field>
+      <input
+        matInput
+        formControlName="firstName"
+        placeholder="First Name"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        formControlName="lastName"
+        placeholder="Last Name"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        formControlName="diseases"
+        placeholder="Diseases"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Date of Birth</mat-label>
+      <input
+      matInput
+      readonly
+        formControlName="birthDate"
+        [matDatepicker]="picker"
+        required
+      />
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Occupation</mat-label>
+      <input
+        matInput
+        formControlName="occupation"
+        placeholder="Occupation"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Enter your Email</mat-label>
+      <input
+        matInput
+        formControlName="email"
+        placeholder="pat@example.com"
+        required
+      />
+      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Future Plans</mat-label>
+      <textarea matInput formControlName="futurePlans" required></textarea>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always">
+      <mat-label>Salary</mat-label>
+      <input
+        matInput
+        formControlName="salary"
+        type="number"
+        class="example-right-align"
+        placeholder="0"
+      />
+      <span matTextPrefix>$&nbsp;</span>
+    </mat-form-field>
+
+    <div class="">
+      <mat-label>Quick Questions: </mat-label>
+      <ul style="list-style-type: none">
+        <li>
+          <mat-checkbox formControlName="canSupportOwnExpenses">
+            Can you support your own expenses?
+          </mat-checkbox>
+        </li>
+        <li>
+          <mat-checkbox formControlName="hasPartner">
+            Do you have a partner?
+          </mat-checkbox>
+        </li>
+        <li>
+          <mat-checkbox formControlName="hasChildren">
+            Do you have children?
+          </mat-checkbox>
+        </li>
+        <li>
+          <mat-checkbox formControlName="drinksAlcohol">
+            Do you drink Alcohol?
+          </mat-checkbox>
+        </li>
+        <li>
+          <mat-checkbox formControlName="doesSmoke">
+            Do you smoke?
+          </mat-checkbox>
+        </li>
+      </ul>
+    </div>
+
+    <mat-radio-group formControlName="gender" required>
+      <mat-label>Gender: </mat-label>
+      <mat-radio-button value="MALE">Male</mat-radio-button>
+      <mat-radio-button value="FEMALE">Female</mat-radio-button>
+    </mat-radio-group>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      (click)="onSubmit()"
+    >
+      Submit
+    </button>
+    <mat-card *ngIf="dangerMessage" class="danger-message">
+      Incomplete form, complete the forms in red
+    </mat-card>
+    <mat-card *ngIf="validMessage" class="valid-message">
+      Submitted form data
+    </mat-card>
+  </form>
+</mat-card>

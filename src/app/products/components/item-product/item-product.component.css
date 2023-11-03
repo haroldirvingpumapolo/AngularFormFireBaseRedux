@@ -1,0 +1,28 @@
+mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+  user-select: none;
+  width: 100%;
+}
+mat-card {
+  background-color: rgb(130, 123, 123);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  width: 200px;
+}
+button {
+  display: inline-block;
+  padding: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: default;
+}

@@ -1,0 +1,21 @@
+<ng-container *ngIf="product">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ product.title }}</mat-card-title>
+    </mat-card-header>
+    <img
+      mat-card-image
+      [ngSrc]="product.images[0]"
+      alt="Photo of a Shiba Inu"
+      width="150"
+      height="150"
+    />
+    <mat-card-content> </mat-card-content>
+    <mat-card-actions>
+      <button >
+        {{ product.price | currency : "USD" : "symbol" : "1.2-2" }}
+      </button>
+      <button >{{ product.category.name }}</button>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>
